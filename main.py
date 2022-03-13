@@ -139,6 +139,7 @@ class Seq2Seq(nn.Module):
         outputs = torch.zeros(bs, target_seq_len, input_size).to(device)
 
         hidden, cell = self.encoder(source[:, :-1, :])
+        coa_cla_prob = self.classifier(hidden, cell)
         x = source[:, -1, :]
 
         teacher_force_ratio = 0.
@@ -152,7 +153,7 @@ class Seq2Seq(nn.Module):
                 x = output
             else:
                 x = target[:, t, :]
-        return outputs, self.classifier(hidden, cell)
+        return outputs, coa_cla_prob
 
 
 def evaluate_testMSE(model, dl, device, epoch):
