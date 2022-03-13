@@ -7,4 +7,4 @@ The script implements all 3 tasks in the challenge (can find details and data [h
 
 Sample results (472 frames predicted from 100 frames input):
 ![Ground truth trajectory](outputs/test_ground_truth.gif)
-![Predicted trajectory](outputs/test_predictions.gif)
+![Predicted trajectory](outputs/test_prediction.gif)
